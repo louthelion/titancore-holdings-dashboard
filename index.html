@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TitanCore Holdings Dashboard</title>
+  <style>
+    :root{
+      --bg:#000000;
+      --panel:#050505;
+      --green:#16b84d;
+      --yellow:#d6aa10;
+      --white:#ffffff;
+      --line:#1b1b1b;
+      --shadow:0 0 0 1px rgba(255,255,255,0.03), 0 10px 28px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--white);
+      font-family:Georgia, "Times New Roman", serif;
+    }
+
+    .wrap{
+      max-width:1050px;
+      margin:0 auto;
+      padding:20px 16px 70px;
+    }
+
+    .mini-brand{
+      font-size:28px;
+      color:#fff;
+      margin-bottom:8px;
+    }
+
+    .main-title{
+      margin:0 0 8px;
+      color:var(--green);
+      font-size:54px;
+      line-height:1;
+      font-weight:700;
+    }
+
+    .sub-title{
+      margin:0 0 18px;
+      color:#fff;
+      font-size:28px;
+    }
+
+    .top-box{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      margin-bottom:28px;
+    }
+
+    .label{
+      color:var(--green);
+      font-size:22px;
+      font-weight:700;
+      margin:10px 0 4px;
+    }
+
+    .value{
+      color:#fff;
+      font-size:22px;
+      margin:0 0 4px;
+    }
+
+    .button-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      background:var(--yellow);
+      color:#000;
+      border-radius:14px;
+      padding:11px 16px;
+      font-size:18px;
+      font-weight:700;
+      box-shadow:var(--shadow);
+      transition:.18s ease;
+    }
+
+    .btn:hover{
+      background:var(--green);
+      color:#000;
+    }
+
+    .section{
+      margin-top:30px;
+    }
+
+    .section-title{
+      color:var(--green);
+      font-size:42px;
+      margin:0 0 14px;
+      font-weight:700;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:16px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .card-title{
+      font-size:30px;
+      color:#fff;
+      margin:0 0 8px;
+      font-weight:700;
+    }
+
+    .card-desc{
+      font-size:20px;
+      color:#fff;
+      margin:0 0 16px;
+    }
+
+    .mini-links{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:10px;
+    }
+
+    .mini-link{
+      display:block;
+      text-decoration:none;
+      background:#0b0b0b;
+      color:var(--green);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px;
+      font-size:18px;
+      font-weight:700;
+      text-align:center;
+      transition:.18s ease;
+    }
+
+    .mini-link:hover{
+      background:var(--yellow);
+      color:#000;
+    }
+
+    .footer-space{
+      height:30px;
+    }
+
+    @media (max-width:850px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width:640px){
+      .main-title{font-size:38px}
+      .sub-title{font-size:21px}
+      .section-title{font-size:32px}
+      .card-title{font-size:24px}
+      .card-desc{font-size:18px}
+      .label,.value{font-size:19px}
+      .mini-links{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="mini-brand">TC</div>
+    <h1 class="main-title">TitanCore Holdings Dashboard</h1>
+    <div class="sub-title">Father Company • Governance • Executive Command</div>
+
+    <div class="top-box">
+      <div class="label">System Time</div>
+      <div class="value" id="currentDate">Sun, Mar 22, 2026</div>
+      <div class="value" id="currentTime">18:00:00</div>
+
+      <div class="label">Mode</div>
+      <div class="value">TitanCore Holdings</div>
+
+      <div class="label">Status</div>
+      <div class="value">Active</div>
+
+      <div class="label">Navigation</div>
+      <div class="value">TitanCore company work dashboard connected to the Central Dashboard.</div>
+
+      <div class="button-row">
+        <a class="btn" href="index.html">Back to Central Dashboard</a>
+        <a class="btn" href="vaultara.html">Vaultara Dashboard</a>
+        <a class="btn" href="familyfirst.html">Family First Dashboard</a>
+      </div>
+    </div>
+
+    <section class="section">
+      <h2 class="section-title">Core Work</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">Inbox</div>
+          <div class="card-desc">TitanCore company communications and routed items.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-inbox.html">Open Inbox</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Approval</div>
+          <div class="card-desc">Approvals, reviews, and internal routing.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-approval.html">Open Approval</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Meeting</div>
+          <div class="card-desc">Company meetings, schedules, and executive calendar.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-meeting.html">Open Meeting</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Signature</div>
+          <div class="card-desc">Documents waiting for review and signature.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-signature.html">Open Signature</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Reports & Records</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">Reports</div>
+          <div class="card-desc">TitanCore Holdings report center and company report routing.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-reports.html">Open Reports</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Records</div>
+          <div class="card-desc">Governance records, files, and internal logs.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-records.html">Open Records</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Departments</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">Finance Department</div>
+          <div class="card-desc">Manager • Assistant Manager • Administrator</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-finance.html">Open Finance</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Operations Department</div>
+          <div class="card-desc">Manager • Assistant Manager • Administrator</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-operations.html">Open Operations</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Legal Department</div>
+          <div class="card-desc">Manager • Assistant Manager • Administrator</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-legal.html">Open Legal</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Technology Department</div>
+          <div class="card-desc">Manager • Assistant Manager • Administrator</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-technology.html">Open Technology</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Communications Department</div>
+          <div class="card-desc">Manager • Assistant Manager • Administrator</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-communications.html">Open Communications</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Security Department</div>
+          <div class="card-desc">Manager • Assistant Manager • Administrator</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-security.html">Open Security</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Connected Companies</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">Vaultara Capital</div>
+          <div class="card-desc">Funding, investment, and capital operations.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="vaultara.html">Open Vaultara</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Family First Equity Group</div>
+          <div class="card-desc">Real estate, property, and equity operations.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="familyfirst.html">Open Family First</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">VitalPath Care Group</div>
+          <div class="card-desc">Healthcare and care operations.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="vitalpath.html">Open VitalPath</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">RevMotion Auto &amp; Marine</div>
+          <div class="card-desc">Auto and marine operations.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="revmotion.html">Open RevMotion</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-space"></div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+
+      const dateText = now.toLocaleDateString('en-US', {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      });
+
+      const timeText = now.toLocaleTimeString('en-US', {
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+
+      document.getElementById('currentDate').textContent = dateText;
+      document.getElementById('currentTime').textContent = timeText;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>t
