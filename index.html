@@ -7,11 +7,11 @@
   <style>
     :root{
       --bg:#000000;
-      --panel:#060606;
-      --green:#16b84d;
+      --panel:#070707;
+      --green:#15b84b;
       --yellow:#d6aa10;
       --white:#ffffff;
-      --line:#1b1b1b;
+      --line:#1c1c1c;
       --shadow:0 0 0 1px rgba(255,255,255,0.03), 0 10px 28px rgba(0,0,0,.35);
       --radius:18px;
     }
@@ -27,7 +27,7 @@
     }
 
     .wrap{
-      max-width:1100px;
+      max-width:1120px;
       margin:0 auto;
       padding:20px 16px 80px;
     }
@@ -36,6 +36,7 @@
       font-size:28px;
       color:#fff;
       margin-bottom:8px;
+      letter-spacing:.5px;
     }
 
     .main-title{
@@ -47,7 +48,7 @@
     }
 
     .sub-title{
-      margin:0 0 18px;
+      margin:0 0 20px;
       color:#fff;
       font-size:28px;
     }
@@ -58,7 +59,7 @@
       border-radius:var(--radius);
       padding:18px;
       box-shadow:var(--shadow);
-      margin-bottom:28px;
+      margin-bottom:30px;
     }
 
     .label{
@@ -81,13 +82,13 @@
     .section-title{
       color:var(--green);
       font-size:42px;
-      margin:0 0 14px;
+      margin:0 0 10px;
       font-weight:700;
     }
 
     .section-note{
       color:#fff;
-      font-size:22px;
+      font-size:21px;
       margin:0 0 16px;
     }
 
@@ -124,7 +125,8 @@
       gap:10px;
     }
 
-    .mini-link{
+    .mini-link,
+    .big-link{
       display:block;
       text-decoration:none;
       background:#0b0b0b;
@@ -138,7 +140,8 @@
       transition:.18s ease;
     }
 
-    .mini-link:hover{
+    .mini-link:hover,
+    .big-link:hover{
       background:var(--yellow);
       color:#000;
     }
@@ -161,11 +164,16 @@
       color:var(--green);
     }
 
+    .single-link{
+      max-width:380px;
+      margin-top:14px;
+    }
+
     .footer-space{
       height:30px;
     }
 
-    @media (max-width:850px){
+    @media (max-width:860px){
       .grid{grid-template-columns:1fr}
     }
 
@@ -173,7 +181,7 @@
       .main-title{font-size:38px}
       .sub-title{font-size:21px}
       .section-title{font-size:32px}
-      .section-note{font-size:19px}
+      .section-note{font-size:18px}
       .card-title{font-size:24px}
       .card-desc,.flow-step{font-size:18px}
       .label,.value{font-size:19px}
@@ -185,12 +193,12 @@
   <div class="wrap">
     <div class="mini-brand">HGLM</div>
     <h1 class="main-title">TitanCore Holdings Dashboard</h1>
-    <div class="sub-title">Internal Company Work Dashboard • Connected to the Central Dashboard</div>
+    <div class="sub-title">Father Company • Internal Approval Hub • Connected to the Central Dashboard</div>
 
     <div class="top-box">
       <div class="label">System Time</div>
-      <div class="value" id="currentDate">Sun, Mar 22, 2026</div>
-      <div class="value" id="currentTime">18:00:00</div>
+      <div class="value" id="currentDate">Mon, Mar 23, 2026</div>
+      <div class="value" id="currentTime">08:00:00</div>
 
       <div class="label">Mode</div>
       <div class="value">TitanCore Holdings</div>
@@ -198,17 +206,47 @@
       <div class="label">Status</div>
       <div class="value">Active</div>
 
-      <div class="label">Connection</div>
-      <div class="value">This dashboard receives company work, organizes reports, and sends finalized reporting to the Central Dashboard.</div>
+      <div class="label">Purpose</div>
+      <div class="value">All company reports, approvals, complaints, contracts, financial items, and department work flow into TitanCore Holdings first, then move up to the Central Dashboard after review and final preparation.</div>
     </div>
 
     <section class="section">
+      <h2 class="section-title">Company Management</h2>
+      <div class="section-note">TitanCore Holdings company leadership reviews, approves, signs, and forwards clean work upward.</div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">Manager</div>
+          <div class="card-desc">Final company review, approvals, signatures, and direction before work moves upward.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-manager.html">Open Manager Dashboard</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Assistant Manager</div>
+          <div class="card-desc">Support review, workflow checking, follow-up, and correction routing.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-assistant-manager.html">Open Assistant Manager Dashboard</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Administrator</div>
+          <div class="card-desc">Logging, routing, filing, record control, and package preparation.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-administrator.html">Open Administrator Dashboard</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <h2 class="section-title">Core Work</h2>
-      <div class="section-note">This is where TitanCore Holdings work is handled before it is finalized upward.</div>
+      <div class="section-note">This is the main company work layer before reports and approvals move upward.</div>
       <div class="grid">
         <div class="card">
           <div class="card-title">Inbox</div>
-          <div class="card-desc">Company communications, routed messages, and internal intake.</div>
+          <div class="card-desc">Company intake, routed messages, requests, and communications.</div>
           <div class="mini-links">
             <a class="mini-link" href="titancore-inbox.html">Open Inbox</a>
           </div>
@@ -216,7 +254,7 @@
 
         <div class="card">
           <div class="card-title">Approval</div>
-          <div class="card-desc">Approvals, internal review, and authorization routing.</div>
+          <div class="card-desc">Company approvals, internal review, and authorization flow.</div>
           <div class="mini-links">
             <a class="mini-link" href="titancore-approval.html">Open Approval</a>
           </div>
@@ -224,7 +262,7 @@
 
         <div class="card">
           <div class="card-title">Meeting</div>
-          <div class="card-desc">Meetings, scheduling, review sessions, and executive coordination.</div>
+          <div class="card-desc">Company meetings, review sessions, planning, and scheduling.</div>
           <div class="mini-links">
             <a class="mini-link" href="titancore-meeting.html">Open Meeting</a>
           </div>
@@ -232,135 +270,63 @@
 
         <div class="card">
           <div class="card-title">Signature</div>
-          <div class="card-desc">Documents waiting for review, routing, completion, and final sign.</div>
+          <div class="card-desc">Documents waiting for sign, final review, or return for correction.</div>
           <div class="mini-links">
             <a class="mini-link" href="titancore-signature.html">Open Signature</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Contracts</div>
+          <div class="card-desc">Contracts move through departments first, then to TitanCore Holdings for final decision and sign routing.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-contracts.html">Open Contracts</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Projects</div>
+          <div class="card-desc">Client work, company projects, corrections, and project decision tracking.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="titancore-projects.html">Open Projects</a>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2 class="section-title">Guide</h2>
-      <div class="section-note">Main company guidance, process direction, and internal workflow control.</div>
+      <h2 class="section-title">Business Channels</h2>
+      <div class="section-note">These are the big business lanes inside TitanCore Holdings.</div>
       <div class="grid">
         <div class="card">
-          <div class="card-title">Company Guide</div>
-          <div class="card-desc">Internal guidance, workflow rules, structure, and operating order.</div>
+          <div class="card-title">Guide</div>
+          <div class="card-desc">Rules, process control, guidance, and company structure management.</div>
           <div class="mini-links">
             <a class="mini-link" href="titancore-guide.html">Open Guide</a>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-title">Policy & Records</div>
-          <div class="card-desc">Governance records, internal policies, logs, and company rules.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-records.html">Open Records</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Investor</h2>
-      <div class="section-note">Investor-related activity, submissions, updates, and reporting preparation.</div>
-      <div class="grid">
-        <div class="card">
-          <div class="card-title">Investor Relations</div>
-          <div class="card-desc">Investor contact flow, updates, files, and review handling.</div>
+          <div class="card-title">Investor</div>
+          <div class="card-desc">Investor-related workflow, review, reporting, and prepared packages.</div>
           <div class="mini-links">
             <a class="mini-link" href="titancore-investor.html">Open Investor</a>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-title">Investor Reports</div>
-          <div class="card-desc">Investor-facing summaries, updates, and reporting drafts.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-investor-reports.html">Open Investor Reports</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Institution</h2>
-      <div class="section-note">Institutional files, routing, compliance preparation, and connected oversight.</div>
-      <div class="grid">
-        <div class="card">
-          <div class="card-title">Institution Relations</div>
-          <div class="card-desc">Institution communication, requests, and partnership workflow.</div>
+          <div class="card-title">Institution</div>
+          <div class="card-desc">Institution workflow, compliance preparation, review, and routing.</div>
           <div class="mini-links">
             <a class="mini-link" href="titancore-institution.html">Open Institution</a>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-title">Institution Reports</div>
-          <div class="card-desc">Institution reporting, quarterly preparation, and formal review files.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-institution-reports.html">Open Institution Reports</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Financial</h2>
-      <div class="section-note">Financial tracking, review, and organized reporting flow for month, quarter, six-month, and year-end work.</div>
-      <div class="grid">
-        <div class="card">
-          <div class="card-title">Financial Review</div>
-          <div class="card-desc">Financial activity, internal review, organization, and tracking.</div>
+          <div class="card-title">Financial</div>
+          <div class="card-desc">Financial review, package building, and company-side preparation.</div>
           <div class="mini-links">
             <a class="mini-link" href="titancore-financial.html">Open Financial</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Financial Reports</div>
-          <div class="card-desc">Monthly, quarterly, six-month, and annual reporting flow.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-financial-reports.html">Open Financial Reports</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Reports</h2>
-      <div class="section-note">All company work should be organized here and then finalized to the Central Dashboard.</div>
-      <div class="grid">
-        <div class="card">
-          <div class="card-title">Monthly Reports</div>
-          <div class="card-desc">Every month, company work is organized and prepared for central reporting.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-report-monthly.html">Open Monthly</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Quarterly Reports</div>
-          <div class="card-desc">Every 3 months, report packages are organized and reviewed.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-report-quarterly.html">Open Quarterly</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Six-Month Reports</div>
-          <div class="card-desc">Mid-year reporting and organized company summary flow.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-report-sixmonth.html">Open Six-Month</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Year-End Reports</div>
-          <div class="card-desc">Final annual reporting, archives, and company completion records.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-report-yearend.html">Open Year-End</a>
           </div>
         </div>
       </div>
@@ -368,7 +334,7 @@
 
     <section class="section">
       <h2 class="section-title">Departments</h2>
-      <div class="section-note">Every department can work here and then feed organized reporting upward.</div>
+      <div class="section-note">All work should be cleaned by departments first before TitanCore Holdings does final company review.</div>
       <div class="grid">
         <div class="card">
           <div class="card-title">Finance Department</div>
@@ -421,14 +387,60 @@
     </section>
 
     <section class="section">
-      <h2 class="section-title">Central Connection Flow</h2>
-      <div class="flow-box">
-        <p class="flow-step"><strong>Step 1:</strong> Work is handled inside TitanCore Holdings.</p>
-        <p class="flow-step"><strong>Step 2:</strong> Inbox, approvals, meetings, signatures, investor work, institution work, and financial work are organized here.</p>
-        <p class="flow-step"><strong>Step 3:</strong> Monthly, quarterly, six-month, and year-end reports are prepared here.</p>
-        <p class="flow-step"><strong>Step 4:</strong> Finalized company reports are sent to the Central Dashboard.</p>
-        <p class="flow-step"><strong>Step 5:</strong> CEO, President, and central leadership can enter from the Central Dashboard and review the full TitanCore Holdings work flow.</p>
+      <h2 class="section-title">Connected Company Reports</h2>
+      <div class="section-note">All companies feed their work into TitanCore Holdings first.</div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">Vaultara Capital Reports</div>
+          <div class="card-desc">Funding, lender, investor, institution, and finance reporting package.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="vaultara-report.html">Open Vaultara Reports</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Family First Equity Group Reports</div>
+          <div class="card-desc">Property, buyer, seller, closing, and equity reporting package.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="familyfirst-report.html">Open Family First Reports</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">VitalPath Care Group Reports</div>
+          <div class="card-desc">Care, staffing, operations, and healthcare reporting package.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="vitalpath-report.html">Open VitalPath Reports</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">RevMotion Auto &amp; Marine Reports</div>
+          <div class="card-desc">Service, operations, inspection, and maintenance reporting package.</div>
+          <div class="mini-links">
+            <a class="mini-link" href="revmotion-report.html">Open RevMotion Reports</a>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Reporting Cycle</h2>
+      <div class="flow-box">
+        <p class="flow-step"><strong>Monday:</strong> All companies send reports, complaints, finance, contract issues, and updates to TitanCore Holdings.</p>
+        <p class="flow-step"><strong>Monday all day:</strong> TitanCore Holdings Manager, Assistant Manager, and Administrator prepare the package.</p>
+        <p class="flow-step"><strong>Tuesday morning:</strong> TitanCore Holdings sends the package to the General Manager, General Assistant Manager, and General Administrator.</p>
+        <p class="flow-step"><strong>Wednesday afternoon:</strong> General team holds the big review meeting, including TitanCore Holdings company management.</p>
+        <p class="flow-step"><strong>Thursday morning:</strong> General team sends the full information upward to the Mantle of 7.</p>
+        <p class="flow-step"><strong>Friday afternoon:</strong> Mantle of 7 meets and decides future direction for all companies.</p>
+        <p class="flow-step"><strong>Saturday:</strong> Mantle of 7 meets with the General team and hands down required actions for each company.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Central Dashboard Connection</h2>
+      <div class="section-note">This company dashboard must connect upward to the Central Dashboard after TitanCore finishes its company-side work.</div>
+      <a class="big-link single-link" href="https://YOUR-CENTRAL-DASHBOARD-LINK-HERE">Open Central Dashboard</a>
     </section>
 
     <div class="footer-space"></div>
