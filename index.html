@@ -3,465 +3,694 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TitanCore Holdings Dashboard</title>
+  <title>TitanCore Dashboard</title>
   <style>
-    :root{
-      --bg:#000000;
-      --panel:#070707;
-      --green:#15b84b;
-      --yellow:#d6aa10;
-      --white:#ffffff;
-      --line:#1c1c1c;
-      --shadow:0 0 0 1px rgba(255,255,255,0.03), 0 10px 28px rgba(0,0,0,.35);
-      --radius:18px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--white);
-      font-family:Georgia, "Times New Roman", serif;
+    :root {
+      --bg: #000000;
+      --panel: #0b0b0b;
+      --gold: #d4af37;
+      --gold-soft: #f1df9a;
+      --green: #18c25c;
+      --green-soft: #27d96b;
+      --white: #ffffff;
+      --border: rgba(212, 175, 55, 0.45);
     }
 
-    .wrap{
-      max-width:1120px;
-      margin:0 auto;
-      padding:20px 16px 80px;
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: var(--gold);
+      line-height: 1.5;
     }
 
-    .mini-brand{
-      font-size:28px;
-      color:#fff;
-      margin-bottom:8px;
-      letter-spacing:.5px;
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-bottom: 40px;
     }
 
-    .main-title{
-      margin:0 0 8px;
-      color:var(--green);
-      font-size:54px;
-      line-height:1;
-      font-weight:700;
+    .topbar {
+      padding: 22px 18px 18px;
+      border-bottom: 2px solid rgba(24, 194, 92, 0.45);
+      background: #050505;
     }
 
-    .sub-title{
-      margin:0 0 20px;
-      color:#fff;
-      font-size:28px;
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
-    .top-box{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:var(--shadow);
-      margin-bottom:30px;
+    .brand h1 {
+      color: var(--green);
+      font-size: 2.1rem;
+      margin-bottom: 8px;
     }
 
-    .label{
-      color:var(--green);
-      font-size:22px;
-      font-weight:700;
-      margin:10px 0 4px;
+    .brand p {
+      color: var(--gold-soft);
+      font-size: 1rem;
+      max-width: 850px;
     }
 
-    .value{
-      color:#fff;
-      font-size:22px;
-      margin:0 0 4px;
+    .timebox {
+      min-width: 220px;
+      background: #0d0d0d;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 12px 14px;
     }
 
-    .section{
-      margin-top:34px;
+    .timebox .label {
+      color: var(--green-soft);
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
     }
 
-    .section-title{
-      color:var(--green);
-      font-size:42px;
-      margin:0 0 10px;
-      font-weight:700;
+    .timebox .value {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: bold;
     }
 
-    .section-note{
-      color:#fff;
-      font-size:21px;
-      margin:0 0 16px;
+    .hero,
+    .section {
+      padding: 18px;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0, 1fr));
-      gap:16px;
+    .hero-card,
+    .card,
+    .mini-card,
+    .modal,
+    .status-box {
+      background: linear-gradient(180deg, #101010, #090909);
+      border: 1px solid var(--border);
+      border-radius: 20px;
     }
 
-    .card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:18px;
-      box-shadow:var(--shadow);
+    .hero-card {
+      padding: 22px;
     }
 
-    .card-title{
-      font-size:30px;
-      color:#fff;
-      margin:0 0 8px;
-      font-weight:700;
+    .hero-card h2,
+    .section h2,
+    .modal-top h3,
+    .subheading {
+      color: var(--green);
     }
 
-    .card-desc{
-      font-size:20px;
-      color:#fff;
-      margin:0 0 16px;
+    .hero-card h2 {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
     }
 
-    .mini-links{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0, 1fr));
-      gap:10px;
+    .hero-card p,
+    .section-desc,
+    .card p,
+    .mini-card p,
+    .modal-top p,
+    .status-box p {
+      color: var(--gold-soft);
     }
 
-    .mini-link,
-    .big-link{
-      display:block;
-      text-decoration:none;
-      background:#0b0b0b;
-      color:var(--green);
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:14px;
-      font-size:18px;
-      font-weight:700;
-      text-align:center;
-      transition:.18s ease;
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
     }
 
-    .mini-link:hover,
-    .big-link:hover{
-      background:var(--yellow);
-      color:#000;
+    .section-desc {
+      margin-bottom: 14px;
+      font-size: 0.98rem;
     }
 
-    .flow-box{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:18px;
-      box-shadow:var(--shadow);
+    .hero-actions,
+    .section-grid,
+    .company-grid {
+      display: grid;
+      gap: 16px;
     }
 
-    .flow-step{
-      color:#fff;
-      font-size:21px;
-      margin:0 0 12px;
+    .hero-actions {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 16px;
     }
 
-    .flow-step strong{
-      color:var(--green);
+    .section-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    .single-link{
-      max-width:380px;
-      margin-top:14px;
+    .company-grid {
+      grid-template-columns: repeat(4, 1fr);
     }
 
-    .footer-space{
-      height:30px;
+    .card {
+      padding: 18px;
     }
 
-    @media (max-width:860px){
-      .grid{grid-template-columns:1fr}
+    .card h3,
+    .mini-card h4 {
+      color: var(--white);
+      margin-bottom: 8px;
     }
 
-    @media (max-width:640px){
-      .main-title{font-size:38px}
-      .sub-title{font-size:21px}
-      .section-title{font-size:32px}
-      .section-note{font-size:18px}
-      .card-title{font-size:24px}
-      .card-desc,.flow-step{font-size:18px}
-      .label,.value{font-size:19px}
-      .mini-links{grid-template-columns:1fr}
+    .card h3 {
+      font-size: 1.08rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+      min-height: 58px;
+    }
+
+    .btn {
+      width: 100%;
+      border: none;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #000;
+      padding: 11px 14px;
+      font-weight: bold;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .footer {
+      padding: 28px 18px 36px;
+      text-align: center;
+      color: #9f8733;
+      font-size: 0.92rem;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 9999;
+    }
+
+    .overlay.show {
+      display: flex;
+    }
+
+    .modal {
+      width: min(1100px, 100%);
+      max-height: 92vh;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .modal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .modal-top h3 {
+      font-size: 1.55rem;
+      margin-bottom: 6px;
+    }
+
+    .modal-top p {
+      max-width: 760px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .modal-actions .btn {
+      width: auto;
+      min-width: 110px;
+    }
+
+    .subheading {
+      font-size: 1.12rem;
+      margin: 18px 0 12px;
+      font-weight: bold;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .mini-card {
+      padding: 16px;
+    }
+
+    .mini-card p {
+      margin-bottom: 12px;
+      min-height: 44px;
+      font-size: 0.93rem;
+    }
+
+    .mini-msg {
+      color: var(--green-soft);
+      margin-top: 8px;
+      font-size: 0.88rem;
+      min-height: 18px;
+    }
+
+    .status-box {
+      margin-top: 18px;
+      padding: 16px;
+    }
+
+    .status-box h4 {
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .status-box p {
+      margin-bottom: 8px;
+      font-size: 0.94rem;
+    }
+
+    .status-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 1100px) {
+      .section-grid,
+      .company-grid,
+      .hero-actions {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .brand h1 {
+        font-size: 1.7rem;
+      }
+
+      .section-grid,
+      .company-grid,
+      .hero-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .section h2 {
+        font-size: 1.55rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="mini-brand">HGLM</div>
-    <h1 class="main-title">TitanCore Holdings Dashboard</h1>
-    <div class="sub-title">Father Company • Internal Approval Hub • Connected to the Central Dashboard</div>
+  <div class="page">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <h1>TitanCore Dashboard</h1>
+          <p>Father Company Dashboard • Leadership • Departments • Workflow • Connected Companies</p>
+        </div>
 
-    <div class="top-box">
-      <div class="label">System Time</div>
-      <div class="value" id="currentDate">Mon, Mar 23, 2026</div>
-      <div class="value" id="currentTime">08:00:00</div>
+        <div class="timebox">
+          <div class="label">System Time</div>
+          <div class="value" id="clock">Loading...</div>
+        </div>
+      </div>
+    </header>
 
-      <div class="label">Mode</div>
-      <div class="value">TitanCore Holdings</div>
+    <section class="hero">
+      <div class="hero-card">
+        <h2>TitanCore Holdings</h2>
+        <p>
+          This is the father company dashboard. From here, TitanCore can review internal leadership,
+          departments, workflow movement, and jump into the other company dashboards.
+        </p>
 
-      <div class="label">Status</div>
-      <div class="value">Active</div>
+        <div class="hero-actions">
+          <button class="btn" onclick="window.location.href='index.html'">Back to Central Dashboard</button>
+          <button class="btn" onclick="openPanel('TitanCore Leadership','Open TitanCore leadership roles first.', titanLeadershipRoles, titanLeadershipStatus)">Open TitanCore Leadership</button>
+        </div>
+      </div>
+    </section>
 
-      <div class="label">Purpose</div>
-      <div class="value">All company reports, approvals, complaints, contracts, financial items, and department work flow into TitanCore Holdings first, then move up to the Central Dashboard after review and final preparation.</div>
+    <section class="section">
+      <h2>Connected Companies</h2>
+      <p class="section-desc">TitanCore, as father company, can move directly into the other company dashboards.</p>
+
+      <div class="company-grid">
+        <div class="card">
+          <h3>Vaultara Capital</h3>
+          <p>Funding, capital, and finance-facing company dashboard.</p>
+          <button class="btn" onclick="window.location.href='vaultaracapital.html'">Open Dashboard</button>
+        </div>
+
+        <div class="card">
+          <h3>Family First Equity Group</h3>
+          <p>Real estate, acquisitions, and company workflow dashboard.</p>
+          <button class="btn" onclick="window.location.href='familyfirst.html'">Open Dashboard</button>
+        </div>
+
+        <div class="card">
+          <h3>VitalPath Care Group</h3>
+          <p>Healthcare and care operations dashboard.</p>
+          <button class="btn" onclick="window.location.href='vitalpath.html'">Open Dashboard</button>
+        </div>
+
+        <div class="card">
+          <h3>RevMotion Auto &amp; Marine</h3>
+          <p>Auto, marine, and service operations dashboard.</p>
+          <button class="btn" onclick="window.location.href='revmotion.html'">Open Dashboard</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>TitanCore Command Areas</h2>
+      <p class="section-desc">Open the area first. Then open the role or section inside it.</p>
+
+      <div class="section-grid">
+        <div class="card">
+          <h3>TitanCore Leadership</h3>
+          <p>Manager, Assistant Manager, Administrator, and TitanCore leadership dashboard access.</p>
+          <button class="btn" onclick="openPanel('TitanCore Leadership','Open TitanCore leadership roles first.', titanLeadershipRoles, titanLeadershipStatus)">Open Dashboard</button>
+        </div>
+
+        <div class="card">
+          <h3>TitanCore Departments</h3>
+          <p>Open departments first, then open manager, assistant manager, and A.I. employee dashboard slots.</p>
+          <button class="btn" onclick="openPanel('TitanCore Departments','Open a department first, then open people inside it.', titanDepartments, titanDepartmentStatus)">Open Dashboard</button>
+        </div>
+
+        <div class="card">
+          <h3>TitanCore Workflow</h3>
+          <p>Review work received from companies, return corrections, sign stage, and send-to-CEO flow.</p>
+          <button class="btn" onclick="openPanel('TitanCore Workflow','Open a workflow section first.', titanWorkflowSections, titanWorkflowStatus)">Open Dashboard</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">TitanCore Dashboard</div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <div class="modal-top">
+        <div>
+          <h3 id="modalTitle">Dashboard</h3>
+          <p id="modalDesc">Description</p>
+        </div>
+        <div class="modal-actions">
+          <button class="btn" onclick="closeModal()">Close</button>
+        </div>
+      </div>
+
+      <div id="modalBody"></div>
+
+      <div class="status-box" id="statusBox">
+        <h4>Connection Status</h4>
+      </div>
     </div>
-
-    <section class="section">
-      <h2 class="section-title">Company Management</h2>
-      <div class="section-note">TitanCore Holdings company leadership reviews, approves, signs, and forwards clean work upward.</div>
-      <div class="grid">
-        <div class="card">
-          <div class="card-title">Manager</div>
-          <div class="card-desc">Final company review, approvals, signatures, and direction before work moves upward.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-manager.html">Open Manager Dashboard</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Assistant Manager</div>
-          <div class="card-desc">Support review, workflow checking, follow-up, and correction routing.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-assistant-manager.html">Open Assistant Manager Dashboard</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Administrator</div>
-          <div class="card-desc">Logging, routing, filing, record control, and package preparation.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-administrator.html">Open Administrator Dashboard</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Core Work</h2>
-      <div class="section-note">This is the main company work layer before reports and approvals move upward.</div>
-      <div class="grid">
-        <div class="card">
-          <div class="card-title">Inbox</div>
-          <div class="card-desc">Company intake, routed messages, requests, and communications.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-inbox.html">Open Inbox</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Approval</div>
-          <div class="card-desc">Company approvals, internal review, and authorization flow.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-approval.html">Open Approval</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Meeting</div>
-          <div class="card-desc">Company meetings, review sessions, planning, and scheduling.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-meeting.html">Open Meeting</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Signature</div>
-          <div class="card-desc">Documents waiting for sign, final review, or return for correction.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-signature.html">Open Signature</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Contracts</div>
-          <div class="card-desc">Contracts move through departments first, then to TitanCore Holdings for final decision and sign routing.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-contracts.html">Open Contracts</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Projects</div>
-          <div class="card-desc">Client work, company projects, corrections, and project decision tracking.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-projects.html">Open Projects</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Business Channels</h2>
-      <div class="section-note">These are the big business lanes inside TitanCore Holdings.</div>
-      <div class="grid">
-        <div class="card">
-          <div class="card-title">Guide</div>
-          <div class="card-desc">Rules, process control, guidance, and company structure management.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-guide.html">Open Guide</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Investor</div>
-          <div class="card-desc">Investor-related workflow, review, reporting, and prepared packages.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-investor.html">Open Investor</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Institution</div>
-          <div class="card-desc">Institution workflow, compliance preparation, review, and routing.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-institution.html">Open Institution</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Financial</div>
-          <div class="card-desc">Financial review, package building, and company-side preparation.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-financial.html">Open Financial</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Departments</h2>
-      <div class="section-note">All work should be cleaned by departments first before TitanCore Holdings does final company review.</div>
-      <div class="grid">
-        <div class="card">
-          <div class="card-title">Finance Department</div>
-          <div class="card-desc">Manager • Assistant Manager • Administrator</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-finance.html">Open Finance</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Operations Department</div>
-          <div class="card-desc">Manager • Assistant Manager • Administrator</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-operations.html">Open Operations</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Legal Department</div>
-          <div class="card-desc">Manager • Assistant Manager • Administrator</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-legal.html">Open Legal</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Technology Department</div>
-          <div class="card-desc">Manager • Assistant Manager • Administrator</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-technology.html">Open Technology</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Communications Department</div>
-          <div class="card-desc">Manager • Assistant Manager • Administrator</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-communications.html">Open Communications</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Security Department</div>
-          <div class="card-desc">Manager • Assistant Manager • Administrator</div>
-          <div class="mini-links">
-            <a class="mini-link" href="titancore-security.html">Open Security</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Connected Company Reports</h2>
-      <div class="section-note">All companies feed their work into TitanCore Holdings first.</div>
-      <div class="grid">
-        <div class="card">
-          <div class="card-title">Vaultara Capital Reports</div>
-          <div class="card-desc">Funding, lender, investor, institution, and finance reporting package.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="vaultara-report.html">Open Vaultara Reports</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Family First Equity Group Reports</div>
-          <div class="card-desc">Property, buyer, seller, closing, and equity reporting package.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="familyfirst-report.html">Open Family First Reports</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">VitalPath Care Group Reports</div>
-          <div class="card-desc">Care, staffing, operations, and healthcare reporting package.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="vitalpath-report.html">Open VitalPath Reports</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">RevMotion Auto &amp; Marine Reports</div>
-          <div class="card-desc">Service, operations, inspection, and maintenance reporting package.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="revmotion-report.html">Open RevMotion Reports</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Reporting Cycle</h2>
-      <div class="flow-box">
-        <p class="flow-step"><strong>Monday:</strong> All companies send reports, complaints, finance, contract issues, and updates to TitanCore Holdings.</p>
-        <p class="flow-step"><strong>Monday all day:</strong> TitanCore Holdings Manager, Assistant Manager, and Administrator prepare the package.</p>
-        <p class="flow-step"><strong>Tuesday morning:</strong> TitanCore Holdings sends the package to the General Manager, General Assistant Manager, and General Administrator.</p>
-        <p class="flow-step"><strong>Wednesday afternoon:</strong> General team holds the big review meeting, including TitanCore Holdings company management.</p>
-        <p class="flow-step"><strong>Thursday morning:</strong> General team sends the full information upward to the Mantle of 7.</p>
-        <p class="flow-step"><strong>Friday afternoon:</strong> Mantle of 7 meets and decides future direction for all companies.</p>
-        <p class="flow-step"><strong>Saturday:</strong> Mantle of 7 meets with the General team and hands down required actions for each company.</p>
-      </div>
-    </ <div class="footer-space"></div>
   </div>
 
   <script>
+    const titanLeadershipRoles = [
+      ["Manager", "TitanCore Manager dashboard"],
+      ["Assistant Manager", "TitanCore Assistant Manager dashboard"],
+      ["Administrator", "TitanCore Administrator dashboard"]
+    ];
+
+    const titanDepartments = [
+      ["Contact Department", "Open this department first"],
+      ["Contract Department", "Open this department first"],
+      ["Email Routing Department", "Open this department first"],
+      ["Report Department", "Open this department first"],
+      ["Approval Department", "Open this department first"],
+      ["Omni Operations Department", "Open this department first"],
+      ["Tax Network Department", "Open this department first"],
+      ["Agent Department", "Open this department first"],
+      ["A.I. Agent Department", "Open this department first"],
+      ["Finance Department", "Open this department first"]
+    ];
+
+    const titanWorkflowSections = [
+      ["Received From Companies", "Packages received from subsidiaries"],
+      ["TitanCore Department Review", "All TitanCore departments review work"],
+      ["Correction Return", "Return items back to company if needed"],
+      ["TitanCore Sign Stage", "Manager + Assistant Manager + Administrator"],
+      ["Send to CEO", "Forward ready work for final CEO sign"],
+      ["Workflow Tracking", "See movement and status"]
+    ];
+
+    const titanLeadershipStatus = [
+      "Open a TitanCore leadership role first.",
+      "Then open the tools inside that dashboard."
+    ];
+
+    const titanDepartmentStatus = [
+      "Open a department first.",
+      "Then open manager, assistant manager, or one of the A.I. employee slots."
+    ];
+
+    const titanWorkflowStatus = [
+      "Open a workflow section first.",
+      "The inside tools will show Not connected yet until live systems are attached."
+    ];
+
     function updateClock() {
-      const now = new Date();
-
-      const dateText = now.toLocaleDateString('en-US', {
-        weekday: 'short',
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric'
-      });
-
-      const timeText = now.toLocaleTimeString('en-US', {
-        hour12: false,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-
-      document.getElementById('currentDate').textContent = dateText;
-      document.getElementById('currentTime').textContent = timeText;
+      document.getElementById("clock").textContent = new Date().toLocaleString();
     }
 
     updateClock();
     setInterval(updateClock, 1000);
+
+    function buildGrid(modules, type) {
+      const grid = document.createElement("div");
+      grid.className = "mini-grid";
+
+      modules.forEach(function(item) {
+        const card = document.createElement("div");
+        card.className = "mini-card";
+
+        const h4 = document.createElement("h4");
+        h4.textContent = item[0];
+
+        const p = document.createElement("p");
+        p.textContent = item[1];
+
+        const btn = document.createElement("button");
+        btn.className = "btn";
+        btn.textContent = item[0];
+
+        const msg = document.createElement("div");
+        msg.className = "mini-msg";
+
+        if (type === "leadership") {
+          btn.onclick = function() {
+            openToolPanel(
+              item[0] + " Dashboard",
+              item[0] + " dashboard inside TitanCore.",
+              [
+                ["Email", "Inbox and communications"],
+                ["Reports", "Reports and review"],
+                ["Meetings", "Meeting schedule and notes"],
+                ["Activity", "Dashboard activity"]
+              ]
+            );
+          };
+        } else if (type === "department") {
+          btn.onclick = function() {
+            openDepartmentPeople(item[0]);
+          };
+        } else if (type === "workflow") {
+          btn.onclick = function() {
+            openToolPanel(
+              item[0],
+              item[1],
+              [
+                ["Overview", "Main view"],
+                ["Queue", "Queue and movement"],
+                ["Status", "Status area"],
+                ["Activity", "Workflow activity"]
+              ]
+            );
+          };
+        } else {
+          btn.onclick = function() {
+            msg.textContent = "Not connected yet";
+          };
+        }
+
+        card.appendChild(h4);
+        card.appendChild(p);
+        card.appendChild(btn);
+        card.appendChild(msg);
+        grid.appendChild(card);
+      });
+
+      return grid;
+    }
+
+    function buildSimpleToolGrid(modules) {
+      const grid = document.createElement("div");
+      grid.className = "mini-grid";
+
+      modules.forEach(function(item) {
+        const card = document.createElement("div");
+        card.className = "mini-card";
+
+        const h4 = document.createElement("h4");
+        h4.textContent = item[0];
+
+        const p = document.createElement("p");
+        p.textContent = item[1];
+
+        const btn = document.createElement("button");
+        btn.className = "btn";
+        btn.textContent = item[0];
+
+        const msg = document.createElement("div");
+        msg.className = "mini-msg";
+
+        btn.onclick = function() {
+          msg.textContent = "Not connected yet";
+        };
+
+        card.appendChild(h4);
+        card.appendChild(p);
+        card.appendChild(btn);
+        card.appendChild(msg);
+        grid.appendChild(card);
+      });
+
+      return grid;
+    }
+
+    function setModal(title, desc, contentNode, statusLines) {
+      document.getElementById("modalTitle").textContent = title;
+      document.getElementById("modalDesc").textContent = desc;
+
+      const body = document.getElementById("modalBody");
+      body.innerHTML = "";
+      body.appendChild(contentNode);
+
+      const box = document.getElementById("statusBox");
+      box.innerHTML = "<h4>Connection Status</h4>";
+
+      statusLines.forEach(function(line) {
+        const p = document.createElement("p");
+        p.textContent = line;
+        box.appendChild(p);
+      });
+
+      document.getElementById("overlay").classList.add("show");
+    }
+
+    function openPanel(title, desc, modules, statusLines) {
+      let type = "";
+      if (title === "TitanCore Leadership") type = "leadership";
+      if (title === "TitanCore Departments") type = "department";
+      if (title === "TitanCore Workflow") type = "workflow";
+
+      setModal(title, desc, buildGrid(modules, type), statusLines);
+    }
+
+    function openToolPanel(title, desc, tools) {
+      setModal(
+        title,
+        desc,
+        buildSimpleToolGrid(tools),
+        ["Open a tool inside this dashboard. It will show Not connected yet until live systems are attached."]
+      );
+    }
+
+    function openDepartmentPeople(departmentName) {
+      setModal(
+        departmentName,
+        "Open manager, assistant manager, or one of the 6 A.I. employees.",
+        buildDepartmentPeopleGrid(departmentName),
+        [
+          "This department opens people first.",
+          "Then open the tools inside that person dashboard."
+        ]
+      );
+    }
+
+    function buildDepartmentPeopleGrid(departmentName) {
+      const roles = [
+        ["Manager", "Department manager dashboard"],
+        ["Assistant Manager", "Department assistant manager dashboard"],
+        ["A.I. Employee 1", "Department A.I. employee slot"],
+        ["A.I. Employee 2", "Department A.I. employee slot"],
+        ["A.I. Employee 3", "Department A.I. employee slot"],
+        ["A.I. Employee 4", "Department A.I. employee slot"],
+        ["A.I. Employee 5", "Department A.I. employee slot"],
+        ["A.I. Employee 6", "Department A.I. employee slot"]
+      ];
+
+      const grid = document.createElement("div");
+      grid.className = "mini-grid";
+
+      roles.forEach(function(item) {
+        const card = document.createElement("div");
+        card.className = "mini-card";
+
+        const h4 = document.createElement("h4");
+        h4.textContent = item[0];
+
+        const p = document.createElement("p");
+        p.textContent = item[1];
+
+        const btn = document.createElement("button");
+        btn.className = "btn";
+        btn.textContent = item[0];
+        btn.onclick = function() {
+          openToolPanel(
+            departmentName + " • " + item[0],
+            item[0] + " dashboard inside " + departmentName + ".",
+            [
+              ["Email", "Inbox and communications"],
+              ["Reports", "Reports and work updates"],
+              ["Meetings", "Meetings and schedule"],
+              ["Activity", "Department work activity"]
+            ]
+          );
+        };
+
+        card.appendChild(h4);
+        card.appendChild(p);
+        card.appendChild(btn);
+        grid.appendChild(card);
+      });
+
+      return grid;
+    }
+
+    function closeModal() {
+      document.getElementById("overlay").classList.remove("show");
+    }
+
+    document.getElementById("overlay").addEventListener("click", function(e) {
+      if (e.target === this) closeModal();
+    });
   </script>
 </body>
 </html>
