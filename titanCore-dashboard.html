@@ -1,4 +1,4 @@
-<!DOCTYPE<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -15,26 +15,26 @@
       font-family: Arial, sans-serif;
       background: #050505;
       color: #f4d35e;
-      padding: 16px;
+      padding: 12px;
     }
 
-    .dashboard-shell {
+    .shell {
       max-width: 1300px;
       margin: 0 auto;
       background: #0b0b0b;
       border: 2px solid #c8a646;
-      border-radius: 20px;
+      border-radius: 22px;
       overflow: hidden;
     }
 
     .hero {
-      padding: 28px 20px 24px;
-      border-bottom: 1px solid rgba(200, 166, 70, 0.25);
-      background:
-        linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
-        radial-gradient(circle at top right, rgba(31,163,74,0.18), transparent 35%),
-        #080808;
+      padding: 28px 18px 24px;
       text-align: center;
+      background:
+        linear-gradient(rgba(0,0,0,0.76), rgba(0,0,0,0.76)),
+        radial-gradient(circle at top right, rgba(31,163,74,0.18), transparent 36%),
+        #080808;
+      border-bottom: 1px solid rgba(200,166,70,0.25);
     }
 
     .hero h1 {
@@ -47,13 +47,13 @@
     .hero p {
       max-width: 980px;
       margin: 0 auto 14px;
-      color: #f2f2f2;
+      color: #f4f4f4;
       font-size: 18px;
       line-height: 1.8;
     }
 
-    .hero-actions {
-      margin-top: 20px;
+    .top-action {
+      margin-top: 18px;
     }
 
     .back-btn {
@@ -61,7 +61,7 @@
       text-decoration: none;
       background: #c8a646;
       color: #000000;
-      padding: 14px 22px;
+      padding: 14px 24px;
       border-radius: 12px;
       font-weight: 800;
       font-size: 16px;
@@ -73,11 +73,11 @@
     }
 
     .content {
-      padding: 24px 18px 30px;
+      padding: 24px 16px 30px;
     }
 
     .section {
-      margin-bottom: 28px;
+      margin-bottom: 30px;
     }
 
     .section-title {
@@ -89,17 +89,56 @@
       padding-left: 12px;
     }
 
-    .grid {
+    .big-button-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .big-card {
+      display: block;
+      text-decoration: none;
+      background: #111111;
+      border: 2px solid #c8a646;
+      border-radius: 18px;
+      padding: 22px 20px;
+      transition: 0.2s ease;
+    }
+
+    .big-card:hover {
+      background: #1fa34a;
+      border-color: #c8a646;
+    }
+
+    .big-card-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #f4d35e;
+      margin-bottom: 10px;
+    }
+
+    .big-card:hover .big-card-title,
+    .big-card:hover .big-card-text {
+      color: #ffffff;
+    }
+
+    .big-card-text {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #f1f1f1;
+    }
+
+    .company-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(180px, 1fr));
       gap: 14px;
     }
 
-    .card-btn {
+    .company-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 88px;
+      min-height: 90px;
       text-align: center;
       text-decoration: none;
       background: #c8a646;
@@ -111,25 +150,15 @@
       border: 2px solid transparent;
     }
 
-    .card-btn:hover {
+    .company-btn:hover {
       background: #1fa34a;
       color: #ffffff;
       border-color: #c8a646;
     }
 
-    .grid.three {
-      grid-template-columns: repeat(3, minmax(220px, 1fr));
-    }
-
-    .grid.four {
-      grid-template-columns: repeat(4, minmax(180px, 1fr));
-    }
-
-    @media (max-width: 1100px) {
-      .grid,
-      .grid.three,
-      .grid.four {
-        grid-template-columns: repeat(2, minmax(180px, 1fr));
+    @media (max-width: 1000px) {
+      .company-grid {
+        grid-template-columns: repeat(2, minmax(160px, 1fr));
       }
     }
 
@@ -139,7 +168,7 @@
       }
 
       .hero {
-        padding: 22px 14px 18px;
+        padding: 22px 12px 18px;
       }
 
       .hero p {
@@ -155,13 +184,23 @@
         font-size: 22px;
       }
 
-      .grid,
-      .grid.three,
-      .grid.four {
+      .big-card {
+        padding: 18px 14px;
+      }
+
+      .big-card-title {
+        font-size: 22px;
+      }
+
+      .big-card-text {
+        font-size: 14px;
+      }
+
+      .company-grid {
         grid-template-columns: 1fr;
       }
 
-      .card-btn {
+      .company-btn {
         min-height: 74px;
         font-size: 16px;
       }
@@ -169,70 +208,69 @@
   </style>
 </head>
 <body>
-  <div class="dashboard-shell">
+  <div class="shell">
     <div class="hero">
       <h1>TitanCore Dashboard</h1>
+
       <p>
         The TitanCore Dashboard is the internal operating dashboard for TitanCore Holdings.
-        It is designed to support leadership oversight, reporting review, structure management,
-        workflow control, department access, and system-wide coordination across the TitanCore network.
-      </p>
-      <p>
-        This dashboard serves as the parent company command point for authorized users to move through
-        leadership pages, TitanCore departments, workflow systems, and connected company dashboards
-        from one central place.
+        It serves as the main access point for leadership review, department oversight,
+        internal systems, workflow coordination, and connected company navigation.
       </p>
 
-      <div class="hero-actions">
+      <p>
+        From this dashboard, authorized users can move into TitanCore leadership pages,
+        department dashboards, system dashboards, and connected company dashboards while
+        maintaining the structure and oversight of the TitanCore network.
+      </p>
+
+      <div class="top-action">
         <a href="./central-dashboard.html" class="back-btn">Go Back to Central Dashboard</a>
       </div>
     </div>
 
     <div class="content">
       <div class="section">
-        <div class="section-title">Leadership</div>
-        <div class="grid">
-          <a href="./ceo.html" class="card-btn">CEO</a>
-          <a href="./president.html" class="card-btn">President</a>
-          <a href="./vice-president.html" class="card-btn">Vice President</a>
-          <a href="./director.html" class="card-btn">Director</a>
-          <a href="./assistant-director.html" class="card-btn">Assistant Director</a>
-          <a href="./chief-of-staff.html" class="card-btn">Chief of Staff</a>
-          <a href="./executive-advisor.html" class="card-btn">Executive Advisor</a>
-        </div>
-      </div>
+        <div class="section-title">TitanCore Access</div>
 
-      <div class="section">
-        <div class="section-title">TitanCore Departments</div>
-        <div class="grid three">
-          <a href="./contracts.html" class="card-btn">Contract</a>
-          <a href="./email-routing.html" class="card-btn">Email Routing</a>
-          <a href="./report-approval.html" class="card-btn">Report &amp; Approval</a>
-          <a href="./omni-system.html" class="card-btn">Omni System</a>
-          <a href="./finance.html" class="card-btn">Finance</a>
-          <a href="./tax-network.html" class="card-btn">Tax Network</a>
-        </div>
-      </div>
+        <div class="big-button-grid">
+          <a href="./titancore-leadership.html" class="big-card">
+            <div class="big-card-title">TitanCore Leadership</div>
+            <div class="big-card-text">
+              Open the TitanCore leadership dashboard to view the Manager, Assistant Manager,
+              and Administrator pages. From there, each role can open its own dashboard with
+              email, approvals, signatures, meetings, completed work, and pending work.
+            </div>
+          </a>
 
-      <div class="section">
-        <div class="section-title">TitanCore Workflow</div>
-        <div class="grid three">
-          <a href="./inbox.html" class="card-btn">Inbox</a>
-          <a href="./meetings.html" class="card-btn">Meetings</a>
-          <a href="./approvals.html" class="card-btn">Approvals</a>
-          <a href="./signatures.html" class="card-btn">Signatures</a>
-          <a href="./company-reports.html" class="card-btn">Company Reports</a>
-          <a href="./internal-oversight.html" class="card-btn">Internal Oversight</a>
+          <a href="./titancore-departments.html" class="big-card">
+            <div class="big-card-title">Departments</div>
+            <div class="big-card-text">
+              Open the TitanCore departments dashboard to move into department leadership,
+              including Manager, Assistant Manager, and Employees. Department managers can
+              review employee work, progress, emails, assigned tasks, and completed tasks.
+            </div>
+          </a>
+
+          <a href="./titancore-systems.html" class="big-card">
+            <div class="big-card-title">Systems</div>
+            <div class="big-card-text">
+              Open the TitanCore systems dashboard to access Contract, Email Routing,
+              Report &amp; Approval, Omni System, Finance, Tax Network, and other system pages.
+              Each system opens into its own dashboard for system work and review.
+            </div>
+          </a>
         </div>
       </div>
 
       <div class="section">
         <div class="section-title">Connected Companies</div>
-        <div class="grid four">
-          <a href="./vaultara-dashboard.html" class="card-btn">Vaultara Capital</a>
-          <a href="./familyfirst-dashboard.html" class="card-btn">Family First Equity Group</a>
-          <a href="./vitalpath-dashboard.html" class="card-btn">VitalPath Care Group</a>
-          <a href="./revmotion-dashboard.html" class="card-btn">RevMotion Auto &amp; Marine Group</a>
+
+        <div class="company-grid">
+          <a href="./vaultara-dashboard.html" class="company-btn">Vaultara Capital</a>
+          <a href="./familyfirst-dashboard.html" class="company-btn">Family First Equity Group</a>
+          <a href="./vitalpath-dashboard.html" class="company-btn">VitalPath Care Group</a>
+          <a href="./revmotion-dashboard.html" class="company-btn">RevMotion Auto &amp; Marine Group</a>
         </div>
       </div>
     </div>
