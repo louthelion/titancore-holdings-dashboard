@@ -11,269 +11,887 @@
       padding: 0;
     }
 
+    :root {
+      --bg: #000000;
+      --panel: #0b0b0b;
+      --gold: #d4af37;
+      --gold-soft: #f1df9a;
+      --green: #18c25c;
+      --green-soft: #27d96b;
+      --white: #ffffff;
+      --border: rgba(212, 175, 55, 0.45);
+    }
+
     body {
       font-family: Arial, sans-serif;
-      background: #050505;
-      color: #f4d35e;
-      padding: 12px;
+      background: #000;
+      color: var(--gold);
+      line-height: 1.5;
     }
 
-    .shell {
-      max-width: 1300px;
+    .page {
+      max-width: 1280px;
       margin: 0 auto;
-      background: #0b0b0b;
-      border: 2px solid #c8a646;
-      border-radius: 22px;
-      overflow: hidden;
+      padding-bottom: 40px;
     }
 
-    .hero {
-      padding: 28px 18px 24px;
-      text-align: center;
-      background:
-        linear-gradient(rgba(0,0,0,0.76), rgba(0,0,0,0.76)),
-        radial-gradient(circle at top right, rgba(31,163,74,0.18), transparent 36%),
-        #080808;
-      border-bottom: 1px solid rgba(200,166,70,0.25);
+    .topbar {
+      padding: 22px 18px 18px;
+      border-bottom: 2px solid rgba(24, 194, 92, 0.45);
+      background: #050505;
     }
 
-    .hero h1 {
-      font-size: clamp(30px, 5vw, 54px);
-      color: #1fa34a;
-      margin-bottom: 16px;
-      font-weight: 800;
-    }
-
-    .hero p {
-      max-width: 980px;
-      margin: 0 auto 14px;
-      color: #f4f4f4;
-      font-size: 18px;
-      line-height: 1.8;
-    }
-
-    .top-action {
-      margin-top: 18px;
-    }
-
-    .back-btn {
-      display: inline-block;
-      text-decoration: none;
-      background: #c8a646;
-      color: #000000;
-      padding: 14px 24px;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 16px;
-    }
-
-    .back-btn:hover {
-      background: #1fa34a;
-      color: #ffffff;
-    }
-
-    .content {
-      padding: 24px 16px 30px;
-    }
-
-    .section {
-      margin-bottom: 30px;
-    }
-
-    .section-title {
-      font-size: 28px;
-      color: #1fa34a;
-      margin-bottom: 14px;
-      font-weight: 800;
-      border-left: 5px solid #c8a646;
-      padding-left: 12px;
-    }
-
-    .big-button-grid {
-      display: grid;
-      grid-template-columns: 1fr;
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
       gap: 16px;
+      flex-wrap: wrap;
     }
 
-    .big-card {
-      display: block;
-      text-decoration: none;
-      background: #111111;
-      border: 2px solid #c8a646;
+    .brand h1 {
+      color: var(--green);
+      font-size: 2.1rem;
+      margin-bottom: 8px;
+    }
+
+    .brand p {
+      color: var(--gold-soft);
+      font-size: 1rem;
+      max-width: 850px;
+    }
+
+    .timebox {
+      min-width: 220px;
+      background: #0d0d0d;
+      border: 1px solid var(--border);
       border-radius: 18px;
-      padding: 22px 20px;
-      transition: 0.2s ease;
+      padding: 12px 14px;
     }
 
-    .big-card:hover {
-      background: #1fa34a;
-      border-color: #c8a646;
+    .timebox .label {
+      color: var(--green-soft);
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
     }
 
-    .big-card-title {
-      font-size: 28px;
-      font-weight: 800;
-      color: #f4d35e;
+    .timebox .value {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .hero,
+    .section {
+      padding: 18px;
+    }
+
+    .hero-card,
+    .card,
+    .mini-card,
+    .modal,
+    .status-box {
+      background: linear-gradient(180deg, #101010, #090909);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
+
+    .hero-card {
+      padding: 22px;
+    }
+
+    .hero-card h2,
+    .section h2,
+    .modal-top h3,
+    .subheading {
+      color: var(--green);
+    }
+
+    .hero-card h2 {
+      font-size: 1.7rem;
       margin-bottom: 10px;
     }
 
-    .big-card:hover .big-card-title,
-    .big-card:hover .big-card-text {
-      color: #ffffff;
+    .hero-card p,
+    .section-desc,
+    .card p,
+    .mini-card p,
+    .modal-top p,
+    .status-box p {
+      color: var(--gold-soft);
     }
 
-    .big-card-text {
-      font-size: 17px;
-      line-height: 1.7;
-      color: #f1f1f1;
+    .hero-actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .company-grid {
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      margin-bottom: 14px;
+      font-size: 0.98rem;
+    }
+
+    .overview-grid,
+    .command-grid,
+    .companies-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .overview-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .command-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .companies-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .card {
+      padding: 18px;
+    }
+
+    .card h3,
+    .mini-card h4 {
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      font-size: 1.08rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+      min-height: 58px;
+    }
+
+    .blank-box {
+      height: 58px;
+      border-top: 1px solid rgba(212,175,55,0.10);
+      margin-top: 8px;
+    }
+
+    .blank-text {
+      color: rgba(241,223,154,0.55);
+      font-style: italic;
+      margin-top: 10px;
+      display: block;
+    }
+
+    .btn {
+      width: 100%;
+      border: none;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #000;
+      padding: 11px 14px;
+      font-weight: bold;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .btn-inline {
+      width: auto;
+      min-width: 180px;
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    .footer {
+      padding: 28px 18px 36px;
+      text-align: center;
+      color: #9f8733;
+      font-size: 0.92rem;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 9999;
+    }
+
+    .overlay.show {
+      display: flex;
+    }
+
+    .modal {
+      width: min(1100px, 100%);
+      max-height: 92vh;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .modal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .modal-top h3 {
+      font-size: 1.55rem;
+      margin-bottom: 6px;
+    }
+
+    .modal-top p {
+      max-width: 760px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .modal-actions .btn {
+      width: auto;
+      min-width: 110px;
+    }
+
+    .subheading {
+      font-size: 1.12rem;
+      margin: 18px 0 12px;
+      font-weight: bold;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 14px;
     }
 
-    .company-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 90px;
-      text-align: center;
-      text-decoration: none;
-      background: #c8a646;
-      color: #000000;
-      border-radius: 14px;
+    .mini-card {
       padding: 16px;
-      font-size: 17px;
-      font-weight: 800;
-      border: 2px solid transparent;
     }
 
-    .company-btn:hover {
-      background: #1fa34a;
-      color: #ffffff;
-      border-color: #c8a646;
+    .mini-card p {
+      margin-bottom: 12px;
+      min-height: 44px;
+      font-size: 0.93rem;
     }
 
-    @media (max-width: 1000px) {
-      .company-grid {
-        grid-template-columns: repeat(2, minmax(160px, 1fr));
+    .mini-msg {
+      color: var(--green-soft);
+      margin-top: 8px;
+      font-size: 0.88rem;
+      min-height: 18px;
+    }
+
+    .status-box {
+      margin-top: 18px;
+      padding: 16px;
+    }
+
+    .status-box h4 {
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .status-box p {
+      margin-bottom: 8px;
+      font-size: 0.94rem;
+    }
+
+    .status-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 1100px) {
+      .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .command-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .companies-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 700px) {
-      body {
-        padding: 8px;
+      .brand h1 {
+        font-size: 1.7rem;
       }
 
-      .hero {
-        padding: 22px 12px 18px;
-      }
-
-      .hero p {
-        font-size: 15px;
-        line-height: 1.65;
-      }
-
-      .content {
-        padding: 18px 12px 24px;
-      }
-
-      .section-title {
-        font-size: 22px;
-      }
-
-      .big-card {
-        padding: 18px 14px;
-      }
-
-      .big-card-title {
-        font-size: 22px;
-      }
-
-      .big-card-text {
-        font-size: 14px;
-      }
-
-      .company-grid {
+      .overview-grid,
+      .companies-grid {
         grid-template-columns: 1fr;
       }
 
-      .company-btn {
-        min-height: 74px;
-        font-size: 16px;
+      .section h2 {
+        font-size: 1.55rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <div class="hero">
-      <h1>TitanCore Dashboard</h1>
+  <div class="page">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <h1>TitanCore Dashboard</h1>
+          <p>Manager • Assistant Manager • Administrator • Departments • Systems • Connected Companies</p>
+        </div>
 
-      <p>
-        The TitanCore Dashboard is the internal operating dashboard for TitanCore Holdings.
-        It serves as the main access point for leadership review, department oversight,
-        internal systems, workflow coordination, and connected company navigation.
-      </p>
-
-      <p>
-        From this dashboard, authorized users can move into TitanCore leadership pages,
-        department dashboards, system dashboards, and connected company dashboards while
-        maintaining the structure and oversight of the TitanCore network.
-      </p>
-
-      <div class="top-action">
-        <a href="./central-dashboard.html" class="back-btn">Go Back to Central Dashboard</a>
+        <div class="timebox">
+          <div class="label">System Time</div>
+          <div class="value" id="clock">Loading...</div>
+        </div>
       </div>
-    </div>
+    </header>
 
-    <div class="content">
-      <div class="section">
-        <div class="section-title">TitanCore Access</div>
+    <section class="hero">
+      <div class="hero-card">
+        <h2>TitanCore Command Layer</h2>
+        <p>
+          This is the TitanCore parent company dashboard. Open the command area first, then open
+          the role or department or system section inside it, then open the tools inside that dashboard.
+          Live values stay blank until the real systems are connected.
+        </p>
 
-        <div class="big-button-grid">
-          <a href="./titancore-leadership.html" class="big-card">
-            <div class="big-card-title">TitanCore Leadership</div>
-            <div class="big-card-text">
-              Open the TitanCore leadership dashboard to view the Manager, Assistant Manager,
-              and Administrator pages. From there, each role can open its own dashboard with
-              email, approvals, signatures, meetings, completed work, and pending work.
-            </div>
-          </a>
+        <div class="hero-actions">
+          <button class="btn btn-inline" onclick="goToCentralDashboard()">Go Back to Central Dashboard</button>
+        </div>
+      </div>
+    </section>
 
-          <a href="./titancore-departments.html" class="big-card">
-            <div class="big-card-title">Departments</div>
-            <div class="big-card-text">
-              Open the TitanCore departments dashboard to move into department leadership,
-              including Manager, Assistant Manager, and Employees. Department managers can
-              review employee work, progress, emails, assigned tasks, and completed tasks.
-            </div>
-          </a>
+    <section class="section">
+      <h2>TitanCore Overview</h2>
+      <p class="section-desc">Fast parent-company view from one place.</p>
 
-          <a href="./titancore-systems.html" class="big-card">
-            <div class="big-card-title">Systems</div>
-            <div class="big-card-text">
-              Open the TitanCore systems dashboard to access Contract, Email Routing,
-              Report &amp; Approval, Omni System, Finance, Tax Network, and other system pages.
-              Each system opens into its own dashboard for system work and review.
-            </div>
-          </a>
+      <div class="overview-grid">
+        <div class="card">
+          <h3>System Alerts</h3>
+          <p>Parent-level warnings and tracked issues across TitanCore and connected companies.</p>
+          <div class="blank-box"></div>
+          <span class="blank-text">Blank until connected</span>
+        </div>
+
+        <div class="card">
+          <h3>Secure Shield</h3>
+          <p>Protected environment and oversight layer for TitanCore operations.</p>
+          <div class="blank-box"></div>
+          <span class="blank-text">Blank until connected</span>
+        </div>
+
+        <div class="card">
+          <h3>Revenue Pulse</h3>
+          <p>Parent-company financial visibility and internal funding direction.</p>
+          <div class="blank-box"></div>
+          <span class="blank-text">Blank until connected</span>
+        </div>
+
+        <div class="card">
+          <h3>Jobs / Workflow</h3>
+          <p>Combined task, assignment, and pipeline movement for TitanCore work.</p>
+          <div class="blank-box"></div>
+          <span class="blank-text">Blank until connected</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Command Areas</h2>
+      <p class="section-desc">Open the command area first. Then open the role or section inside it.</p>
+
+      <div class="command-grid">
+        <div class="card">
+          <h3>TitanCore Leadership</h3>
+          <p>Manager, Assistant Manager, and Administrator reporting, review, coordination, and oversight.</p>
+          <button class="btn" onclick="renderTitanCoreLeadership(false)">Open Dashboard</button>
+        </div>
+
+        <div class="card">
+          <h3>Department Command</h3>
+          <p>Open departments first, then open a department dashboard to see Manager, Assistant Manager, and 6 A.I. employees.</p>
+          <button class="btn" onclick="renderDepartmentCommand(false)">Open Dashboard</button>
+        </div>
+
+        <div class="card">
+          <h3>Systems</h3>
+          <p>Contract, Email Routing, Report &amp; Approval, Omni System, Finance, and Tax Network visibility.</p>
+          <button class="btn" onclick="renderSystems(false)">Open Dashboard</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Company Dashboards</h2>
+      <p class="section-desc">Direct jump from TitanCore Dashboard into the connected company dashboards.</p>
+
+      <div class="companies-grid">
+        <div class="card">
+          <h3>Vaultara Capital</h3>
+          <p>Funding, capital, and finance-facing company dashboard.</p>
+          <button class="btn" onclick="window.location.href='vaultaracapital.html'">Open Dashboard</button>
+        </div>
+
+        <div class="card">
+          <h3>Family First Equity Group</h3>
+          <p>Real estate, acquisitions, and company workflow dashboard.</p>
+          <button class="btn" onclick="window.location.href='familyfirst.html'">Open Dashboard</button>
+        </div>
+
+        <div class="card">
+          <h3>VitalPath Care Group</h3>
+          <p>Healthcare and care operations dashboard.</p>
+          <button class="btn" onclick="window.location.href='vitalpath.html'">Open Dashboard</button>
+        </div>
+
+        <div class="card">
+          <h3>RevMotion Auto &amp; Marine</h3>
+          <p>Auto, marine, and service operations dashboard.</p>
+          <button class="btn" onclick="window.location.href='revmotion.html'">Open Dashboard</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">TitanCore Dashboard</div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <div class="modal-top">
+        <div>
+          <h3 id="modalTitle">Dashboard</h3>
+          <p id="modalDesc">Description</p>
+        </div>
+        <div class="modal-actions">
+          <button class="btn" id="backBtn" onclick="goBack()" style="display:none;">Back</button>
+          <button class="btn" onclick="closeModal()">Close</button>
         </div>
       </div>
 
-      <div class="section">
-        <div class="section-title">Connected Companies</div>
+      <div id="modalBody"></div>
 
-        <div class="company-grid">
-          <a href="./vaultara-dashboard.html" class="company-btn">Vaultara Capital</a>
-          <a href="./familyfirst-dashboard.html" class="company-btn">Family First Equity Group</a>
-          <a href="./vitalpath-dashboard.html" class="company-btn">VitalPath Care Group</a>
-          <a href="./revmotion-dashboard.html" class="company-btn">RevMotion Auto &amp; Marine Group</a>
-        </div>
+      <div class="status-box" id="statusBox">
+        <h4>Connection Status</h4>
       </div>
     </div>
   </div>
+
+  <script>
+    const stateStack = [];
+
+    const roleTools = {
+      manager: [
+        ["Email", "Manager inbox and communications"],
+        ["Contracts", "Contracts waiting for manager review"],
+        ["Reports", "Manager report intake and review"],
+        ["Meetings", "Manager meeting schedule and notes"],
+        ["Approvals", "Approvals waiting for manager action"],
+        ["Signatures", "Manager signing area"],
+        ["Pending Work", "Pending manager work queue"],
+        ["Completed Work", "Completed manager work history"]
+      ],
+      assistantManager: [
+        ["Email", "Assistant Manager inbox and communications"],
+        ["Contracts", "Contracts waiting for assistant manager review"],
+        ["Reports", "Assistant Manager report review"],
+        ["Meetings", "Assistant Manager meeting schedule and notes"],
+        ["Approvals", "Approvals waiting for assistant manager action"],
+        ["Signatures", "Assistant Manager signing area"],
+        ["Pending Work", "Pending assistant manager work queue"],
+        ["Completed Work", "Completed assistant manager work history"]
+      ],
+      administrator: [
+        ["Email", "Administrator inbox and communications"],
+        ["Contracts", "Contract records and administrator review"],
+        ["Reports", "Administrator report records"],
+        ["Meetings", "Administrator meeting schedule and notes"],
+        ["Approvals", "Approval records and tracking"],
+        ["Signatures", "Administrator signature records"],
+        ["Pending Work", "Pending administrator work queue"],
+        ["Completed Work", "Completed administrator work history"]
+      ],
+      departmentManager: [
+        ["Email", "Department manager inbox and communications"],
+        ["Reports", "Department manager review and reporting"],
+        ["Meetings", "Department manager meetings and notes"],
+        ["Assignments", "Assigned work for the department"],
+        ["Employee Activity", "View employee progress and activity"],
+        ["Pending Work", "Pending department manager tasks"],
+        ["Completed Work", "Completed department manager tasks"]
+      ],
+      departmentAssistantManager: [
+        ["Email", "Department assistant manager inbox and communications"],
+        ["Reports", "Department assistant manager review"],
+        ["Meetings", "Department assistant manager meetings and notes"],
+        ["Assignments", "Support assignments for the department"],
+        ["Employee Activity", "View employee work progress"],
+        ["Pending Work", "Pending assistant manager tasks"],
+        ["Completed Work", "Completed assistant manager tasks"]
+      ],
+      departmentEmployee: [
+        ["Email", "Employee inbox and communications"],
+        ["Tasks", "Assigned tasks and work orders"],
+        ["Meetings", "Employee meeting schedule"],
+        ["Work Area", "Current work activity"],
+        ["Pending Work", "Pending employee tasks"],
+        ["Completed Work", "Completed employee tasks"]
+      ]
+    };
+
+    const departmentList = [
+      "Contract Department",
+      "Email Routing Department",
+      "Report & Approval Department",
+      "Omni System Department",
+      "Finance Department",
+      "Tax Network Department"
+    ];
+
+    const systemSections = [
+      ["Contract", "Contract review, movement, and tracking dashboard"],
+      ["Email Routing", "Email routing, forwarding, and internal communication dashboard"],
+      ["Report & Approval", "Report intake, review, and approval movement dashboard"],
+      ["Omni System", "Central operational view and internal workflow dashboard"],
+      ["Finance", "Finance direction, records, and internal company visibility dashboard"],
+      ["Tax Network", "Tax tracking, filings, compliance, and deadline dashboard"]
+    ];
+
+    function updateClock() {
+      document.getElementById("clock").textContent = new Date().toLocaleString();
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    function goToCentralDashboard() {
+      if (document.referrer) {
+        history.back();
+      } else {
+        window.location.href = "central-dashboard.html";
+      }
+    }
+
+    function openOverlay() {
+      document.getElementById("overlay").classList.add("show");
+    }
+
+    function closeModal() {
+      document.getElementById("overlay").classList.remove("show");
+      stateStack.length = 0;
+    }
+
+    document.getElementById("overlay").addEventListener("click", function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    function saveState(renderer) {
+      stateStack.push(renderer);
+      document.getElementById("backBtn").style.display = "inline-block";
+    }
+
+    function goBack() {
+      if (!stateStack.length) return;
+      const renderer = stateStack.pop();
+      renderer(true);
+      if (!stateStack.length) {
+        document.getElementById("backBtn").style.display = "none";
+      }
+    }
+
+    function setModal(title, desc, contentNode, statusLines, showBack) {
+      document.getElementById("modalTitle").textContent = title;
+      document.getElementById("modalDesc").textContent = desc;
+
+      const body = document.getElementById("modalBody");
+      body.innerHTML = "";
+      body.appendChild(contentNode);
+
+      const box = document.getElementById("statusBox");
+      box.innerHTML = "<h4>Connection Status</h4>";
+      statusLines.forEach(function(line) {
+        const p = document.createElement("p");
+        p.textContent = line;
+        box.appendChild(p);
+      });
+
+      document.getElementById("backBtn").style.display = showBack ? "inline-block" : "none";
+      openOverlay();
+    }
+
+    function buildToolGrid(modules) {
+      const grid = document.createElement("div");
+      grid.className = "mini-grid";
+
+      modules.forEach(function(item) {
+        const card = document.createElement("div");
+        card.className = "mini-card";
+
+        const h4 = document.createElement("h4");
+        h4.textContent = item[0];
+
+        const p = document.createElement("p");
+        p.textContent = item[1];
+
+        const btn = document.createElement("button");
+        btn.className = "btn";
+        btn.textContent = item[0];
+
+        const msg = document.createElement("div");
+        msg.className = "mini-msg";
+
+        btn.onclick = function() {
+          msg.textContent = "Not connected yet";
+        };
+
+        card.appendChild(h4);
+        card.appendChild(p);
+        card.appendChild(btn);
+        card.appendChild(msg);
+        grid.appendChild(card);
+      });
+
+      return grid;
+    }
+
+    function buildRoleGrid(roles) {
+      const grid = document.createElement("div");
+      grid.className = "mini-grid";
+
+      roles.forEach(function(role) {
+        const card = document.createElement("div");
+        card.className = "mini-card";
+
+        const h4 = document.createElement("h4");
+        h4.textContent = role.title;
+
+        const p = document.createElement("p");
+        p.textContent = role.desc;
+
+        const btn = document.createElement("button");
+        btn.className = "btn";
+        btn.textContent = role.title;
+        btn.onclick = role.action;
+
+        card.appendChild(h4);
+        card.appendChild(p);
+        card.appendChild(btn);
+        grid.appendChild(card);
+      });
+
+      return grid;
+    }
+
+    function renderRoleDashboard(title, desc, modules, pushRenderer, parentRenderer) {
+      if (!pushRenderer && parentRenderer) saveState(parentRenderer);
+
+      setModal(
+        title,
+        desc,
+        buildToolGrid(modules),
+        ["Open a tool inside this dashboard. It will show Not connected yet until live systems are attached."],
+        true
+      );
+    }
+
+    function renderTitanCoreLeadership(pushRenderer) {
+      const roles = [
+        {
+          title: "Manager",
+          desc: "TitanCore Manager dashboard",
+          action: function() {
+            renderRoleDashboard("TitanCore Manager Dashboard", "Manager command dashboard.", roleTools.manager, false, renderTitanCoreLeadership);
+          }
+        },
+        {
+          title: "Assistant Manager",
+          desc: "TitanCore Assistant Manager dashboard",
+          action: function() {
+            renderRoleDashboard("TitanCore Assistant Manager Dashboard", "Assistant Manager command dashboard.", roleTools.assistantManager, false, renderTitanCoreLeadership);
+          }
+        },
+        {
+          title: "Administrator",
+          desc: "TitanCore Administrator dashboard",
+          action: function() {
+            renderRoleDashboard("TitanCore Administrator Dashboard", "Administrator command dashboard.", roleTools.administrator, false, renderTitanCoreLeadership);
+          }
+        }
+      ];
+
+      setModal(
+        "TitanCore Leadership",
+        "Open a leadership role to see that role dashboard.",
+        buildRoleGrid(roles),
+        [
+          "TitanCore Leadership opens roles first.",
+          "Open Manager, Assistant Manager, or Administrator to see that dashboard."
+        ],
+        pushRenderer && stateStack.length > 0
+      );
+    }
+
+    function renderDepartmentCommand(pushRenderer) {
+      const roles = departmentList.map(function(name) {
+        return {
+          title: name,
+          desc: "Open this department to see Manager, Assistant Manager, and Employees.",
+          action: function() {
+            renderDepartmentDashboard(name, false, renderDepartmentCommand);
+          }
+        };
+      });
+
+      setModal(
+        "Department Command",
+        "Open a department to see its internal dashboard.",
+        buildRoleGrid(roles),
+        [
+          "Department Command opens departments first.",
+          "Open a department to see Manager, Assistant Manager, and Employees."
+        ],
+        pushRenderer && stateStack.length > 0
+      );
+    }
+
+    function renderDepartmentDashboard(name, pushRenderer, parentRenderer) {
+      if (!pushRenderer && parentRenderer) saveState(parentRenderer);
+
+      const members = [
+        {
+          title: "Manager",
+          desc: "Open the department manager dashboard.",
+          action: function() {
+            renderRoleDashboard(
+              name + " • Manager",
+              "Department manager dashboard inside " + name + ".",
+              roleTools.departmentManager,
+              false,
+              function() { renderDepartmentDashboard(name, true); }
+            );
+          }
+        },
+        {
+          title: "Assistant Manager",
+          desc: "Open the department assistant manager dashboard.",
+          action: function() {
+            renderRoleDashboard(
+              name + " • Assistant Manager",
+              "Department assistant manager dashboard inside " + name + ".",
+              roleTools.departmentAssistantManager,
+              false,
+              function() { renderDepartmentDashboard(name, true); }
+            );
+          }
+        },
+        {
+          title: "Employees",
+          desc: "Open the 6 A.I. employees inside this department.",
+          action: function() {
+            renderEmployeeList(name, false, function() { renderDepartmentDashboard(name, true); });
+          }
+        }
+      ];
+
+      setModal(
+        name,
+        "Open the Manager, Assistant Manager, or Employees.",
+        buildRoleGrid(members),
+        [
+          "This department dashboard opens people first.",
+          "Managers can review employee work, but the live systems are blank until connected."
+        ],
+        true
+      );
+    }
+
+    function renderEmployeeList(name, pushRenderer, parentRenderer) {
+      if (!pushRenderer && parentRenderer) saveState(parentRenderer);
+
+      const employees = [];
+      for (let i = 1; i <= 6; i++) {
+        employees.push({
+          title: "A.I. Employee " + i,
+          desc: "Open this employee dashboard.",
+          action: function(index) {
+            return function() {
+              renderRoleDashboard(
+                name + " • A.I. Employee " + index,
+                "Employee dashboard inside " + name + ".",
+                roleTools.departmentEmployee,
+                false,
+                function() { renderEmployeeList(name, true); }
+              );
+            };
+          }(i)
+        });
+      }
+
+      setModal(
+        name + " • Employees",
+        "Open one employee to see that employee dashboard.",
+        buildRoleGrid(employees),
+        [
+          "Employees open one by one from this dashboard.",
+          "Live values stay blank until the real systems are connected."
+        ],
+        true
+      );
+    }
+
+    function renderSystems(pushRenderer) {
+      const roles = systemSections.map(function(item) {
+        return {
+          title: item[0],
+          desc: item[1],
+          action: function() {
+            renderRoleDashboard(
+              "Systems • " + item[0],
+              item[1],
+              [
+                ["Overview", "Main overview for " + item[0]],
+                ["Activity", "Tracked activity for " + item[0]],
+                ["Queue", "Queue and movement for " + item[0]],
+                ["Status", "Status area for " + item[0]]
+              ],
+              false,
+              renderSystems
+            );
+          }
+        };
+      });
+
+      setModal(
+        "Systems",
+        "Open a system first, then open the tools inside it.",
+        buildRoleGrid(roles),
+        [
+          "Systems opens sections first.",
+          "Live system values stay blank until the real systems are connected."
+        ],
+        pushRenderer && stateStack.length > 0
+      );
+    }
+  </script>
 </body>
 </html>
