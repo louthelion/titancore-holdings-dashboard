@@ -83,18 +83,19 @@
     </div>
   </div>
 
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", function(e){
-      e.preventDefault();
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value.trim();
+ <script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-      if(!email || !password){
-        return;
-      }
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
 
-      window.location.href = "titancore.html";
-    });
-  </script>
+  if (email === "admin@titancoreholdings.com" && password === "123456") {
+    window.location.href = "./titancore-dashboard.html";
+  } else {
+    alert("Wrong email or password");
+  }
+});
+</script>
 </body>
 </html>
