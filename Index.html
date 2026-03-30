@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TitanCore Secure Login</title>
+  <title>Titan Core Holdings Dashboard Login</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,310 +12,223 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
       background: #050505;
+      font-family: Arial, sans-serif;
       color: #f4d35e;
       min-height: 100vh;
+      padding: 16px;
     }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .login-shell {
+    .shell {
       width: 100%;
       max-width: 1200px;
-      min-height: 680px;
-      display: grid;
-      grid-template-columns: 420px 1fr;
-      background: #0d0d0d;
+      margin: 0 auto;
+      min-height: calc(100vh - 32px);
+      background: #0b0b0b;
       border: 2px solid #c8a646;
-      border-radius: 22px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.45);
-    }
-
-    .left-panel {
-      background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
-      border-right: 1px solid rgba(200, 166, 70, 0.35);
-      padding: 38px 28px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
     }
 
-    .brand-badge {
-      width: 86px;
-      height: 86px;
-      border-radius: 18px;
-      background: #0f2f18;
-      border: 2px solid #1fa34a;
+    .top-title {
+      width: 100%;
+      text-align: center;
+      padding: 24px 16px 20px;
+      font-size: clamp(28px, 5vw, 54px);
+      font-weight: 800;
       color: #1fa34a;
+      border-bottom: 1px solid rgba(200, 166, 70, 0.35);
+      letter-spacing: 0.5px;
+    }
+
+    .bottom-area {
+      flex: 1;
+      display: flex;
+      min-height: 0;
+    }
+
+    .left-side {
+      width: 42%;
+      background: #c8a646;
+      padding: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 34px;
-      font-weight: 800;
-      margin-bottom: 18px;
     }
 
-    .left-title {
-      font-size: 32px;
-      font-weight: 800;
-      color: #1fa34a;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .left-subtitle {
-      font-size: 15px;
-      color: #d7c27a;
-      text-align: center;
-      margin-bottom: 28px;
-      line-height: 1.5;
-    }
-
-    .login-card {
+    .login-box {
       width: 100%;
-      max-width: 320px;
-      background: #121212;
-      border: 1px solid rgba(200, 166, 70, 0.35);
-      border-radius: 18px;
-      padding: 22px 18px;
-    }
-
-    .login-card h2 {
-      font-size: 20px;
-      color: #f4d35e;
-      margin-bottom: 18px;
-      text-align: center;
+      max-width: 360px;
     }
 
     .field {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .field label {
       display: block;
-      margin-bottom: 7px;
-      font-size: 14px;
-      color: #d7c27a;
-      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 18px;
+      font-weight: 800;
+      color: #000000;
     }
 
     .field input {
       width: 100%;
-      height: 48px;
-      border-radius: 12px;
-      border: 1px solid #3e3e3e;
-      background: #0a0a0a;
-      color: #ffffff;
-      padding: 0 14px;
-      font-size: 15px;
+      height: 58px;
+      border: 2px solid #111111;
+      border-radius: 14px;
+      padding: 0 16px;
+      font-size: 18px;
+      background: #fff7dc;
+      color: #000000;
       outline: none;
     }
 
     .field input:focus {
       border-color: #1fa34a;
-      box-shadow: 0 0 0 2px rgba(31, 163, 74, 0.18);
     }
 
     .login-btn {
       width: 100%;
-      height: 52px;
+      height: 62px;
       border: none;
       border-radius: 14px;
       background: #1fa34a;
       color: #ffffff;
-      font-size: 17px;
+      font-size: 22px;
       font-weight: 800;
       cursor: pointer;
       margin-top: 6px;
     }
 
-    .login-btn:hover {
-      background: #17833a;
+    .login-btn:active {
+      transform: scale(0.99);
     }
 
-    .helper {
-      margin-top: 14px;
-      text-align: center;
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .helper a {
-      color: #f4d35e;
-      text-decoration: none;
-    }
-
-    .helper a:hover {
-      text-decoration: underline;
-    }
-
-    .right-panel {
-      padding: 56px 52px;
+    .right-side {
+      width: 58%;
+      padding: 28px 24px;
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
       background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.72)),
+        linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
         radial-gradient(circle at top right, rgba(31,163,74,0.16), transparent 35%),
-        #080808;
+        #090909;
     }
 
-    .top-line {
-      color: #1fa34a;
-      font-size: 14px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.8px;
-      margin-bottom: 14px;
-    }
-
-    .right-panel h1 {
-      font-size: 48px;
-      line-height: 1.1;
-      color: #f4d35e;
-      margin-bottom: 20px;
-      max-width: 720px;
-    }
-
-    .right-panel p {
-      font-size: 18px;
+    .definition {
+      width: 100%;
+      max-width: 620px;
+      font-size: 21px;
       line-height: 1.8;
-      color: #f2f2f2;
-      max-width: 760px;
+      color: #f5f5f5;
+    }
+
+    .definition p {
       margin-bottom: 18px;
     }
 
-    .feature-box {
-      margin-top: 16px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(180px, 1fr));
-      gap: 14px;
-      max-width: 700px;
-    }
-
-    .feature {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(200,166,70,0.22);
-      border-radius: 14px;
-      padding: 16px;
-    }
-
-    .feature strong {
-      display: block;
-      color: #1fa34a;
-      margin-bottom: 8px;
-      font-size: 15px;
-    }
-
-    .feature span {
-      color: #e8e8e8;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
     @media (max-width: 900px) {
-      .login-shell {
-        grid-template-columns: 1fr;
+      body {
+        padding: 8px;
       }
 
-      .left-panel {
-        border-right: none;
-        border-bottom: 1px solid rgba(200, 166, 70, 0.35);
+      .shell {
+        min-height: calc(100vh - 16px);
       }
 
-      .right-panel {
-        padding: 34px 24px 40px;
+      .top-title {
+        padding: 18px 10px 16px;
+        font-size: 30px;
       }
 
-      .right-panel h1 {
-        font-size: 34px;
+      .bottom-area {
+        flex-direction: row;
       }
 
-      .right-panel p {
+      .left-side {
+        width: 44%;
+        padding: 10px;
+      }
+
+      .right-side {
+        width: 56%;
+        padding: 14px 12px;
+      }
+
+      .field label {
+        font-size: 14px;
+      }
+
+      .field input {
+        height: 44px;
+        font-size: 14px;
+        padding: 0 10px;
+      }
+
+      .login-btn {
+        height: 48px;
         font-size: 16px;
       }
 
-      .feature-box {
-        grid-template-columns: 1fr;
+      .definition {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .definition p {
+        margin-bottom: 12px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="login-shell">
-      <div class="left-panel">
-        <div class="brand-badge">T</div>
-        <div class="left-title">TitanCore Login</div>
-        <div class="left-subtitle">
-          Secure entry to the TitanCore Holdings internal dashboard.
-        </div>
+  <div class="shell">
+    <div class="top-title">Titan Core Holdings Dashboard</div>
 
-        <div class="login-card">
-          <h2>Secure Sign In</h2>
-
+    <div class="bottom-area">
+      <div class="left-side">
+        <div class="login-box">
           <form id="loginForm">
             <div class="field">
               <label for="email">Email</label>
-              <input id="email" type="email" placeholder="Enter your email" required />
+              <input id="email" type="email" placeholder="Enter email" required />
             </div>
 
             <div class="field">
               <label for="password">Password</label>
-              <input id="password" type="password" placeholder="Enter your password" required />
+              <input id="password" type="password" placeholder="Enter password" required />
             </div>
 
-            <button type="submit" class="login-btn">Login to Dashboard</button>
-
-            <div class="helper">
-              <a href="https://passwordreset.microsoftonline.com/">Reset Password</a>
-              <br />
-              <a href="mailto:helpdesk@titancoreholdings.com">Contact Help Desk</a>
-            </div>
+            <button type="submit" class="login-btn">Login</button>
           </form>
         </div>
       </div>
 
-      <div class="right-panel">
-        <div class="top-line">TitanCore Holdings LLC</div>
-        <h1>TitanCore Dashboard</h1>
-        <p>
-          The TitanCore Dashboard is the parent company control center for internal
-          leadership, company oversight, reporting review, approvals, finance flow,
-          contract coordination, and system-wide management across the TitanCore network.
-        </p>
-        <p>
-          This secure portal is designed to support TitanCore leadership and authorized
-          personnel with a clear view of operations, company structure, reporting systems,
-          and executive workflow.
-        </p>
+      <div class="right-side">
+        <div class="definition">
+          <p>
+            Titan Core Holdings is the parent company command center for oversight,
+            reporting, approvals, structure, and internal leadership coordination
+            across the TitanCore network.
+          </p>
 
-        <div class="feature-box">
-          <div class="feature">
-            <strong>Leadership Access</strong>
-            <span>Mantle of Seven, executive review, company oversight, and approvals.</span>
-          </div>
-          <div class="feature">
-            <strong>System Control</strong>
-            <span>Dashboard navigation, contract review, email routing, and reporting.</span>
-          </div>
-          <div class="feature">
-            <strong>Company Visibility</strong>
-            <span>Access TitanCore and connected company operations from one place.</span>
-          </div>
-          <div class="feature">
-            <strong>Secure Entry</strong>
-            <span>Protected sign-in page for internal use and authorized access only.</span>
-          </div>
+          <p>
+            This secure access page supports authorized entry into the TitanCore
+            internal dashboard, where leadership can review operations, manage
+            workflow, monitor company activity, and move through the central
+            business system.
+          </p>
+
+          <p>
+            The dashboard is built to serve as the main internal control point for
+            company visibility, executive review, reporting flow, finance direction,
+            and organization-wide management.
+          </p>
         </div>
       </div>
     </div>
