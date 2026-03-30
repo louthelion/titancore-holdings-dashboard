@@ -3,99 +3,329 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TitanCore Dashboard Login</title>
+  <title>TitanCore Secure Login</title>
   <style>
-    :root{
-      --bg:#000000;
-      --panel:#070707;
-      --green:#18c25c;
-      --gold:#d4af37;
-      --white:#ffffff;
-      --muted:#bdbdbd;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial, Helvetica, sans-serif}
-    body{background:var(--bg);color:var(--white);min-height:100vh}
-    .top-title{text-align:center;font-size:clamp(2rem,4vw,3rem);font-weight:800;padding:22px 16px 10px;color:var(--white)}
-    .wrap{width:min(1200px,94%);margin:0 auto 24px;background:var(--panel);border:2px solid var(--green);display:grid;grid-template-columns:1fr 1fr;min-height:650px}
-    .left{padding:32px 26px;border-right:2px solid var(--green);display:flex;flex-direction:column;justify-content:flex-end}
-    .logo-box{width:86px;height:86px;border:2px solid var(--green);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--gold);font-size:2rem;font-weight:800;background:#0b0b0b}
-    .login-sub{font-size:1.15rem;color:var(--gold);font-weight:700;margin-bottom:24px;text-transform:uppercase}
-    .field{margin-bottom:20px}
-    .field label{display:block;margin-bottom:8px;font-weight:700;font-size:1rem}
-    .field input{width:100%;padding:17px 15px;border:2px solid var(--green);border-radius:14px;background:#000;color:#fff;font-size:1rem;outline:none}
-    .field input::placeholder{color:#7d7d7d}
-    .field input:focus{border-color:var(--gold)}
-    .login-btn{width:100%;margin-top:10px;padding:18px 15px;border:none;border-radius:40px;background:var(--gold);color:#000;font-size:1.05rem;font-weight:800;cursor:pointer}
-    .login-btn:hover{background:var(--green)}
-    .helper{margin-top:18px;font-size:.95rem;display:flex;gap:8px;flex-wrap:wrap}
-    .helper a{color:var(--gold);text-decoration:none}
-    .helper a:hover{text-decoration:underline}
-    .right{padding:32px 26px;display:flex;flex-direction:column;justify-content:space-between}
-    .right h2{font-size:clamp(2rem,3.4vw,3rem);line-height:1.08;margin-bottom:18px}
-    .right p{font-size:1.05rem;line-height:1.7;max-width:520px}
-    .note{color:var(--muted);font-size:.92rem;line-height:1.5;margin-top:18px}
-    @media (max-width:860px){.wrap{grid-template-columns:1fr}.left{border-right:none;border-bottom:2px solid var(--green)}}
+    body {
+      font-family: Arial, sans-serif;
+      background: #050505;
+      color: #f4d35e;
+      min-height: 100vh;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .login-shell {
+      width: 100%;
+      max-width: 1200px;
+      min-height: 680px;
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      background: #0d0d0d;
+      border: 2px solid #c8a646;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .left-panel {
+      background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+      border-right: 1px solid rgba(200, 166, 70, 0.35);
+      padding: 38px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .brand-badge {
+      width: 86px;
+      height: 86px;
+      border-radius: 18px;
+      background: #0f2f18;
+      border: 2px solid #1fa34a;
+      color: #1fa34a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .left-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #1fa34a;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .left-subtitle {
+      font-size: 15px;
+      color: #d7c27a;
+      text-align: center;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 320px;
+      background: #121212;
+      border: 1px solid rgba(200, 166, 70, 0.35);
+      border-radius: 18px;
+      padding: 22px 18px;
+    }
+
+    .login-card h2 {
+      font-size: 20px;
+      color: #f4d35e;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+      color: #d7c27a;
+      font-weight: 700;
+    }
+
+    .field input {
+      width: 100%;
+      height: 48px;
+      border-radius: 12px;
+      border: 1px solid #3e3e3e;
+      background: #0a0a0a;
+      color: #ffffff;
+      padding: 0 14px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .field input:focus {
+      border-color: #1fa34a;
+      box-shadow: 0 0 0 2px rgba(31, 163, 74, 0.18);
+    }
+
+    .login-btn {
+      width: 100%;
+      height: 52px;
+      border: none;
+      border-radius: 14px;
+      background: #1fa34a;
+      color: #ffffff;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+
+    .login-btn:hover {
+      background: #17833a;
+    }
+
+    .helper {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .helper a {
+      color: #f4d35e;
+      text-decoration: none;
+    }
+
+    .helper a:hover {
+      text-decoration: underline;
+    }
+
+    .right-panel {
+      padding: 56px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.72)),
+        radial-gradient(circle at top right, rgba(31,163,74,0.16), transparent 35%),
+        #080808;
+    }
+
+    .top-line {
+      color: #1fa34a;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      margin-bottom: 14px;
+    }
+
+    .right-panel h1 {
+      font-size: 48px;
+      line-height: 1.1;
+      color: #f4d35e;
+      margin-bottom: 20px;
+      max-width: 720px;
+    }
+
+    .right-panel p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #f2f2f2;
+      max-width: 760px;
+      margin-bottom: 18px;
+    }
+
+    .feature-box {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 14px;
+      max-width: 700px;
+    }
+
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(200,166,70,0.22);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .feature strong {
+      display: block;
+      color: #1fa34a;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .feature span {
+      color: #e8e8e8;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .login-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .left-panel {
+        border-right: none;
+        border-bottom: 1px solid rgba(200, 166, 70, 0.35);
+      }
+
+      .right-panel {
+        padding: 34px 24px 40px;
+      }
+
+      .right-panel h1 {
+        font-size: 34px;
+      }
+
+      .right-panel p {
+        font-size: 16px;
+      }
+
+      .feature-box {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="top-title">TitanCore Dashboard</div>
-
-  <div class="wrap">
-    <div class="left">
-      <div class="logo-box">T</div>
-      <div class="login-sub">Secure Login</div>
-
-      <form id="loginForm">
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" type="email" placeholder="name@titancoreholdings.com" required>
+  <div class="page">
+    <div class="login-shell">
+      <div class="left-panel">
+        <div class="brand-badge">T</div>
+        <div class="left-title">TitanCore Login</div>
+        <div class="left-subtitle">
+          Secure entry to the TitanCore Holdings internal dashboard.
         </div>
 
-        <div class="field">
-          <label for="password">Password</label>
-          <input id="password" type="password" placeholder="Password" required>
+        <div class="login-card">
+          <h2>Secure Sign In</h2>
+
+          <form id="loginForm">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="Enter your email" required />
+            </div>
+
+            <div class="field">
+              <label for="password">Password</label>
+              <input id="password" type="password" placeholder="Enter your password" required />
+            </div>
+
+            <button type="submit" class="login-btn">Login to Dashboard</button>
+
+            <div class="helper">
+              <a href="https://passwordreset.microsoftonline.com/">Reset Password</a>
+              <br />
+              <a href="mailto:helpdesk@titancoreholdings.com">Contact Help Desk</a>
+            </div>
+          </form>
         </div>
-
-        <button type="submit" class="login-btn">Login</button>
-
-        <div class="helper">
-          <a href="https://passwordreset.microsoftonline.com/" target="_blank" rel="noopener">Forgot password?</a>
-          <span>•</span>
-          <a href="mailto:helpdesk@titancoreholdings.com?subject=Need%20help%20with%20dashboard%20email">Forgot email?</a>
-        </div>
-      </form>
-    </div>
-
-    <div class="right">
-      <div>
-        <h2>TitanCore Dashboard</h2>
-        <p>
-          Parent company dashboard for TitanCore Holdings, used for approvals,
-          internal oversight, reporting review, and controlled movement across
-          the TitanCore structure.
-        </p>
       </div>
 
-      <div class="note">
-        Sign in to continue to the TitanCore Dashboard.
+      <div class="right-panel">
+        <div class="top-line">TitanCore Holdings LLC</div>
+        <h1>TitanCore Dashboard</h1>
+        <p>
+          The TitanCore Dashboard is the parent company control center for internal
+          leadership, company oversight, reporting review, approvals, finance flow,
+          contract coordination, and system-wide management across the TitanCore network.
+        </p>
+        <p>
+          This secure portal is designed to support TitanCore leadership and authorized
+          personnel with a clear view of operations, company structure, reporting systems,
+          and executive workflow.
+        </p>
+
+        <div class="feature-box">
+          <div class="feature">
+            <strong>Leadership Access</strong>
+            <span>Mantle of Seven, executive review, company oversight, and approvals.</span>
+          </div>
+          <div class="feature">
+            <strong>System Control</strong>
+            <span>Dashboard navigation, contract review, email routing, and reporting.</span>
+          </div>
+          <div class="feature">
+            <strong>Company Visibility</strong>
+            <span>Access TitanCore and connected company operations from one place.</span>
+          </div>
+          <div class="feature">
+            <strong>Secure Entry</strong>
+            <span>Protected sign-in page for internal use and authorized access only.</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
- <script>
-document.getElementById("loginForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-
-  if (email === "admin@titancoreholdings.com" && password === "123456") {
-    window.location.href = "./titancore-dashboard.html";
-  } else {
-    alert("Wrong email or password");
-  }
-});
-</script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      window.location.href = "./titancore-dashboard.html";
+    });
+  </script>
 </body>
 </html>
