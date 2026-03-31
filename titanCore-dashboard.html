@@ -585,16 +585,10 @@
     setInterval(updateClock, 1000);
 
     function goToCentralDashboard() {
-  window.location.href = "central-login.html";
-}
-      if (document.referrer) {
-        history.back();
-      } else {
-        window.location.href = "central-dashboard.html";
-      }
+     window.location.href = "central-login.html";
     }
-
-    function openOverlay() {
+    }
+  function openOverlay() {
       document.getElementById("overlay").classList.add("show");
     }
 
